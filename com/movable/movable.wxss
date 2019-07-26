@@ -1,0 +1,103 @@
+page {
+  height: 100%;
+}
+
+.movable-box {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+}
+
+.movable-btn {
+  position: fixed;
+  width: 100rpx;
+  height: 100rpx;
+  z-index: 11;
+}
+.sellerinfo-closed-btn{
+  position: absolute;
+  right: 40rpx;
+  top: -100rpx;
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.share-images {
+  position: relative;
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+}
+
+.share-image-bg-left{
+  position: absolute;
+  top: -8rpx;
+  left: -26rpx;
+  width: 80rpx;
+  height: 116rpx;
+  background: #D8D8D8;
+}
+.share-image-bg-left::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 23rpx;
+  width: 116rpx;
+  height: 116rpx;
+  border-radius: 50%;
+  background: #D8D8D8;
+}
+.share-image-bg-right{
+  position: absolute;
+  top: -8rpx;
+  left: -12rpx;
+  width: 116rpx;
+  height: 116rpx;
+  border-radius: 50%;
+  background: #D8D8D8;
+}
+.share-image-bg-right::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 64rpx;
+  width: 80rpx;
+  height: 116rpx;
+  background: #D8D8D8;
+}
+
+
+.show-sellerinfo-wrapper{
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, .9);
+  z-index: 1;
+}
+
+  
+  
+.SellerInfo{
+  position: absolute;
+  /* 在下方 */
+  top: 120rpx;
+  /* top: -200rpx; */
+  left: 0;
+  right: 0;
+  margin: auto;
+  display: flex;
+  width: 670rpx;
+  height: 188rpx;
+  background: rgba(255, 255, 255, .1);
+  box-shadow: 0 0 20rpx 0;
+  border-radius: 94rpx;
+  z-index: 10001;
+}
+  /* 在上方 */
+.SellerInfo-showOnTop{
+  top: -200rpx;
+}
+

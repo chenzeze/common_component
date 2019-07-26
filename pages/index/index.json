@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+      "com-wrapper": "/com/wrapper/wrapper"
+  }
+}

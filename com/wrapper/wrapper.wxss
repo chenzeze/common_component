@@ -1,0 +1,33 @@
+/* com/wrapper/wrapper.wxss */
+/* 遮盖层 */
+.wrapper{
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, .66);
+    z-index: 1000;
+}
+
+/* 弹出层居中 */
+.panel.center{
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    display: flex;
+    width: 670rpx;
+    height: 188rpx;
+    background: rgba(255, 255, 255, .1);
+    box-shadow: 0 0 20rpx 0;
+    border-radius: 94rpx;
+    z-index: 10001;
+}
+
+/* 弹出层下面 */
+.panel.bottom{
+    
+}
+  
+  /* com/wrapper.wxss */
