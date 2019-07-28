@@ -34,6 +34,26 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    tabBar: {
+      "borderStyle": "black",
+      "color": "#b2b2b2",
+      "selectedColor": "#333",
+      "backgroundColor": "#fff",
+      "list": [
+        {
+          "pagePath": "pages/index/index",
+          "text": "首页",
+          "iconPath": "/images/tab_bar/home.jpg",
+          "selectedIconPath": "/images/tab_bar/home_active.jpg"
+        },
+        {
+          "pagePath": "pages/logs/logs",
+          "text": "查看更多",
+          "iconPath": "/images/tab_bar/classify.jpg",
+          "selectedIconPath": "/images/tab_bar/classify_active.jpg"
+        }
+      ]
+    }
   }
 })

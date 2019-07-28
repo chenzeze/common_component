@@ -1,4 +1,27 @@
+/* 遮盖层 */
+.panel{
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    display: flex;
+    width: 670rpx;
+    height: 188rpx;
+    background: #fff;
+    box-shadow: 0 0 20rpx 0;
+    border-radius: 94rpx;
+    z-index: 1001;
+}
+
+.close_btn_icon{
+  position: absolute;
+  left: 100rpx;
+  top: 0;
+  width: 24rpx;
+  height: 24rpx;
+}
 /**index.wxss**/
+
 .userinfo {
   display: flex;
   flex-direction: column;

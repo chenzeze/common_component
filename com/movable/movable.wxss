@@ -9,28 +9,21 @@ page {
   z-index: 1000;
 }
 
-.movable-btn {
+.movable-box .movable-btn {
   position: fixed;
   width: 100rpx;
   height: 100rpx;
   z-index: 11;
 }
-.sellerinfo-closed-btn{
-  position: absolute;
-  right: 40rpx;
-  top: -100rpx;
-  width: 60rpx;
-  height: 60rpx;
-}
 
-.share-images {
+.movable-box .movable-btn .image {
   position: relative;
   width: 100rpx;
   height: 100rpx;
   border-radius: 50%;
 }
 
-.share-image-bg-left{
+.movable-box .movable-btn .image-bg-left{
   position: absolute;
   top: -8rpx;
   left: -26rpx;
@@ -38,7 +31,7 @@ page {
   height: 116rpx;
   background: #D8D8D8;
 }
-.share-image-bg-left::before{
+.movable-box .movable-btn .image-bg-left::before{
   content: "";
   position: absolute;
   top: 0;
@@ -48,7 +41,7 @@ page {
   border-radius: 50%;
   background: #D8D8D8;
 }
-.share-image-bg-right{
+.movable-box .movable-btn .image-bg-right{
   position: absolute;
   top: -8rpx;
   left: -12rpx;
@@ -57,7 +50,7 @@ page {
   border-radius: 50%;
   background: #D8D8D8;
 }
-.share-image-bg-right::before{
+.movable-box .movable-btn .image-bg-right::before{
   content: "";
   position: absolute;
   top: 0;
@@ -67,6 +60,14 @@ page {
   background: #D8D8D8;
 }
 
+/* 遮盖层 */
+.sellerinfo-closed-btn{
+  position: absolute;
+  right: 40rpx;
+  top: -100rpx;
+  width: 60rpx;
+  height: 60rpx;
+}
 
 .show-sellerinfo-wrapper{
   position: fixed;

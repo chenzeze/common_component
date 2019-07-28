@@ -1,5 +1,7 @@
 {
   "usingComponents": {
-      "com-wrapper": "/com/wrapper/wrapper"
+      "com-wrapper": "/com/wrapper/wrapper",
+      "com-tabbar": "/com/tabbar/tabbar",
+      "com-movable": "/com/movable/movable"
   }
 }

@@ -1,23 +1,10 @@
 <!--com/movable/movable.wxml-->
 <movable-area class='movable-box'>
-  <!-- <slot/> -->
-  <view class="show-sellerinfo-wrapper" wx:if="{{isShowSellerInfo}}" bindtap="closedSellerInfoWrapper">
-    <view class="SellerInfo {{showOnTop?'SellerInfo-showOnTop':''}}" style="top:{{SellerInfoTop}}rpx;" wx:if="{{isShowSellerInfo}}">
-      <view class="sellerinfo-closed-btn" catchtap="closedSellerInfoWrapper">
-        <image
-          src="{{imgUrl}}/poster/icon_close.svg"
-          mode="widthFix"
-          ></image>
-      </view>  
-      <slot />
-    </view>
-  </view>
-  <movable-view class='movable-btn' damping='30' x='{{x}}' y='{{y}}' direction='all' bindtap="showSellerInfoWrapper" bindtouchstart='onShareMoveStart' bindtouchmove='onShareMoving' bindtouchend='onShareMoveEnd'>
+  <movable-view class='movable-btn' damping='30' x='{{x}}' y='{{y}}' direction='all' bindtouchstart='onMoveStart' bindtouchmove='onMoving' bindtouchend='onMoveEnd'>
     <!-- 停靠在边缘时的背景 -->
-    <view class="share-image-bg-left" wx:if="{{endLeft && !isShowSellerInfo}}"></view>
-    <view class="share-image-bg-right" wx:if="{{endRight && !isShowSellerInfo}}"></view>
+    <view class="image-bg-left" wx:if="{{endLeft && !isShowSellerInfo}}"></view>
+    <view class="image-bg-right" wx:if="{{endRight && !isShowSellerInfo}}"></view>
     
-    <image class="share-images" hidden="{{isShowSellerInfo}}" src="{{content}}"></image>
-  
+    <image class="image" hidden="{{isShowSellerInfo}}" src="{{movabaleImg}}"></image>
   </movable-view>
 </movable-area>

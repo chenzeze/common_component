@@ -1,8 +1,7 @@
 <!--com/wrapper.wxml-->
-<view class="wrapper" wx:if="{{showWrapper}}" bindtap="hideWrapper">
-    <view class="panel {{panelBottom?'bottom':''}} {{panelCenter?'center':''}}">
-        <view class="close_btn" bindtap="hideWrapper">
-            <slot />
-        </view>
-    </view>
+<view class="com-wrapper" wx:if="{{showWrapper}}" bindtap="hideWrapper" style="background-color:{{backgroundColor}}">
+  <!-- 阻止事件冒泡 -->
+  <view class="stopPro" catchtap="emptyFn">
+      <slot />
+  </view>
 </view>

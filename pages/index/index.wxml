@@ -1,2 +1,27 @@
 <!--index.wxml-->
-<com-wrapper showWrapper="{{true}}"></com-wrapper>
+<!-- 自定义tabbar -->
+<com-tabbar>
+  <!-- 遮盖层 -->
+  <com-wrapper showWrapper="{{showWrapper}}" isTabPage="{{true}}">
+    <view class='panel'>
+      <view class="close_btn" bindtap="hideWrapperEv">
+          <image class='close_btn_icon' src='/images/wrapper/closed_icon.png'></image>
+      </view>
+      <view>要展示的内容</view>
+    </view>
+  </com-wrapper>
+  <button bindtap="showWrapperEv">点击展示遮盖层</button>
+  <!-- 可拖动悬浮框 -->
+  <com-movable movabaleImg="/images/movable/avatar.jpeg">
+    <image src="{{sellerInfo.avatarUrl}}" class="seller-avator"></image>
+    <!-- <view class="seller-info-detail">
+      <view class="seller-info-box">
+          <view class="seller-name">{{sellerInfo.sellerName}}</view>
+          <view class="store-name">{{storeInfo.storeName}}</view>
+      </view>
+      <view class="store-info-box">
+          <text class="store-address">店铺地址：{{storeInfo.storeAddress}}</text>
+      </view>
+    </view> -->
+  </com-movable>
+</com-tabbar>
