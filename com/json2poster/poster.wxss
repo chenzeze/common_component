@@ -1,0 +1,65 @@
+/* components/poster/poster.wxss */
+.container {
+    width: 100%;
+    /* position: relative; */
+}
+
+.add-img {
+    width: 496rpx;
+    height: 792rpx;
+    margin: 48rpx auto;
+    background: #FFFFFF;
+    box-shadow: 0 0 30px 0 rgba(0,0,0,0.10);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    box-shadow: 0 0 30px 0 rgba(0,0,0,0.10);
+}
+button {
+    padding: 0;
+}
+.button_save {
+    margin-top: 40rpx;
+    width: 496rpx;
+    height: 74rpx;
+    background: #000000;
+    font-family: PingFangSC-Regular;
+    font-size: 28rpx;
+    color: #FFFFFF;
+    letter-spacing: 0;
+    border-radius: 0;
+}
+.button_close_box {
+    position: fixed;
+    width: 60rpx !important;
+    height: 60rpx !important;
+    top: 30rpx;
+    right: 30rpx;
+    background: #000;
+    border-radius: 50% !important;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.button_close {
+    /* position:  */
+    text-align: center;
+    display: inline-block;
+    width: 38rpx;
+    height: 4rpx;
+    background: #fff;
+    line-height: 0;
+    font-size: 0;
+    vertical-align: middle;
+    transform: rotate(45deg);
+  }
+  .button_close:after {
+    content: "/";
+    display: block;
+    width: 38rpx;
+    height: 4rpx;
+    background: #fff;
+    transform: rotate(-90deg);
+  }

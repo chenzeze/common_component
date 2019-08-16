@@ -4,10 +4,16 @@ const app = getApp()
 
 Page({
   data: {
+    isshowWrapper: true,
     motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
+  },
+  showWrapper(){
+    this.setData({
+      isshowWrapper: true
+    })
   },
   //事件处理函数
   bindViewTap: function() {

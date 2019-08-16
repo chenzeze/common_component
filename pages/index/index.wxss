@@ -1,4 +1,12 @@
 /**index.wxss**/
+page {
+  height: 100%;
+}
+.index_main{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
 .userinfo {
   display: flex;
   flex-direction: column;
