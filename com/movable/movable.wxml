@@ -3,7 +3,7 @@
   <!-- 弹出层 -->
   <slot />
 
-  <movable-view class='movable-btn' damping='30' x='{{x}}' y='{{y}}' direction='all' bindtap="showSellerInfoWrapper" bindtouchstart='onShareMoveStart' bindtouchmove='onShareMoving' bindtouchend='onShareMoveEnd'>
+  <movable-view wx:if="{{!isShowSellerInfo}}" class='movable-btn' damping='30' x='{{x}}' y='{{y}}' direction='all' bindtap="showSellerInfoWrapper" bindtouchstart='onShareMoveStart' bindtouchmove='onShareMoving' bindtouchend='onMoveEnd'>
     <!-- 停靠在边缘时的背景 -->
     <view class="image-bg {{endLeft ? 'bg-left' : ''}} {{endRight ? 'bg-right' : ''}}" wx:if="{{endLeft || endRight}}">
       <view class="share-image-bg"></view>

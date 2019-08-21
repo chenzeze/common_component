@@ -40,7 +40,7 @@ page {
   flex-wrap: wrap;
   background: #fff;
   margin-bottom: 30rpx;
-  margin-top: 40rpx;
+  margin-top: 30rpx;
 }
 .seller-nav{
   width: 50%;

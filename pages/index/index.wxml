@@ -1,4 +1,20 @@
 <!--index.wxml-->
+<!-- 可拖动悬浮用户个人信息框 -->
+<com-movable wx:if="{{hasUserInfo}}" bind:isShowSellerInfo="showSellerInfoWrapper" content="{{userInfo.avatarUrl}}" isShowSellerInfo="{{isShowSellerInfo}}">
+  <!-- 点击展开遮盖层 -->
+  <com-wrapper showWrapper="{{isShowSellerInfo}}">
+    <!-- 弹窗随着可拖动悬浮窗的高度而变化 -->
+    <view class="sellerInfoPanel" style="top:{{SellerInfoTop}}rpx;">
+      <image
+        src="/images/icon_close.svg"
+        class="close_btn"
+        bindtap="closedSellerInfoWrapper"
+        ></image>
+      <text class="user_name">{{userInfo.nickName}}</text>
+      <image src="{{userInfo.avatarUrl}}" class="user_avator"></image>
+    </view>
+  </com-wrapper>
+</com-movable>
 <view class="index_main">
     <!-- 定时收藏提示 -->
     <com-addtip status="{{isShowIndexAddTip}}"/>
@@ -38,24 +54,7 @@
     </view>
   </com-wrapper>
 
-  <!-- 可拖动悬浮用户个人信息框 -->
-  <com-movable wx:if="{{hasUserInfo}}" bind:isShowSellerInfo="showSellerInfoWrapper" content="{{userInfo.avatarUrl}}">
-    <!-- 点击展开遮盖层 -->
-    <com-wrapper showWrapper="{{isShowSellerInfo}}">
-      <!-- 弹窗随着可拖动悬浮窗的高度而变化 -->
-      <view class="sellerInfoPanel" style="top:{{SellerInfoTop}}rpx;">
-        <image
-          src="/images/icon_close.svg"
-          class="close_btn"
-          bindtap="closedSellerInfoWrapper"
-          ></image>
-       <text class="user_name">{{userInfo.nickName}}</text>
-       <image src="{{userInfo.avatarUrl}}" class="user_avator"></image>
-      </view>
-    </com-wrapper>
-  </com-movable>
-
   <!-- 绘制海报 -->
   <com-json2poster wx:if="{{ifShowPoster}}" showed="{{ifShowPoster}}" posterType="{{posterType}}" reqParams="{{reqParams}}" bind:closePoster='closePoster'></com-json2poster>
-
 </view>
+<com-tabbar></com-tabbar>

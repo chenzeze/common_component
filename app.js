@@ -34,6 +34,26 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    tabBar: {
+      "borderStyle": "#b2b2b2",
+      "color": "#b2b2b2",
+      "selectedColor": "#333",
+      "backgroundColor": "#fff",
+      "list": [
+        {
+          "pagePath": "pages/index/index",
+          "text": "首页",
+          "iconPath": "/images/home.jpg",
+          "selectedIconPath": "/images/home_active.jpg"
+        },
+        {
+          "pagePath": "pages/poster/poster",
+          "text": "海报",
+          "iconPath": "/images/discover.jpg",
+          "selectedIconPath": "/images/discover_active.jpg"
+        }
+      ]
+    }
   }
 })

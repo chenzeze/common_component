@@ -7,26 +7,11 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    // 弹出层内容宽高
-    panelWidth: {
-      type: Number,
-      value: 650
+    // 背景色
+    backgroundColor:{
+      type: String,
+      value: 'rgba(0, 0, 0, .66)'
     },
-    panelHeight: {
-      type: Number,
-      value: 188
-    },
-
-    // 弹出层位置： 底部 / 居中(优先级更高)
-    panelBottom: {
-      type: Boolean,
-      value: false
-    },
-    panelCenter: {
-      type: Boolean,
-      value: true
-    },
-
     // 是否为tab页，如果是，显示遮盖层时需要hideTabBar
     isTabPage: {
       type: Boolean,
@@ -40,11 +25,11 @@ Component({
       observer: function (newVal, oldVal) {
         // console.log('从默认值false到传入值true执行一次')
         if (this.data.isTabPage) {
-          if (newVal) {
-            wx.hideTabBar({});
-          } else {
-            wx.showTabBar({});
-          }
+          // if (newVal) {
+          //   wx.hideTabBar({});
+          // } else {
+          //   wx.showTabBar({});
+          // }
         }
       }
     },

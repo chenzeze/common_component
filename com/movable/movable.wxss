@@ -11,14 +11,14 @@ page {
   z-index: 999;
 }
 
-.movable-btn {
+.movable-box .movable-btn {
   position: fixed;
   width: 100rpx;
   height: 100rpx;
   z-index: 11;
 }
 
-.share-images {
+.movable-box .movable-btn .share-images {
   position: relative;
   width: 100rpx;
   height: 100rpx;
@@ -65,6 +65,14 @@ page {
   background: rgba(222,222,222,0.5);
 }
 
+/* 遮盖层 */
+.sellerinfo-closed-btn{
+  position: absolute;
+  right: 40rpx;
+  top: -100rpx;
+  width: 60rpx;
+  height: 60rpx;
+}
 
 .show-sellerinfo-wrapper{
   position: fixed;

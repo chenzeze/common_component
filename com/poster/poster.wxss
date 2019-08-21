@@ -1,0 +1,31 @@
+/* components/poster/poster.wxss */
+
+button {
+    margin-top: 20rpx;
+}
+
+.add-img {
+    width: 600rpx;
+    height: 888rpx;
+    margin: 0 75rpx;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+.add-btn {
+    width: 80rpx;
+    height: 80rpx;
+    display: block;
+    border-radius: 4rpx;
+    margin: 0 auto;
+}
+
+.add-tip {
+    font-size: 32rpx;
+    margin-top: 30rpx;
+    color: #000;
+}

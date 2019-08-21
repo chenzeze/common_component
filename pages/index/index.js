@@ -148,13 +148,13 @@ Page({
         isShowSellerInfo: true,
         SellerInfoTop: e.detail
       })
-      wx.hideTabBar({});
+      // wx.hideTabBar({});
   },
   closedSellerInfoWrapper: function(){
     this.setData({
       isShowSellerInfo: false
     })
-    wx.showTabBar({});
+    // wx.showTabBar({});
   },
 
   // 遮盖层
@@ -174,6 +174,14 @@ Page({
     wx.navigateTo({
       url: '../logs/logs'
     })
+  },
+  onShow: function () {
+    if(app.globalData.userInfo){
+      this.setData({
+        userInfo: app.globalData.userInfo,
+        hasUserInfo: true
+      })
+    }
   },
   onLoad: function () {
     this.showAddTip();

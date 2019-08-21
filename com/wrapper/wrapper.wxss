@@ -1,11 +1,10 @@
 /* com/wrapper/wrapper.wxss */
-/* 遮盖层 */
 .wrapper{
     position: fixed;
     left: 0;
     right: 0;
     top: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, .45);
+    background: #00000073;
     z-index: 1000;
 }

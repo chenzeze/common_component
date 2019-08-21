@@ -5,18 +5,28 @@ let {
   windowWidth,
   windowHeight
 } = wx.getSystemInfoSync();
+
 let sysAveWidth = windowWidth / 2;
 let sysHeight = windowHeight;
 let leftDistance = 9; // 停靠时距离左边距离
 let rightDistance = 54; // 停靠时距离右边距离
 
 let localCoord = wx.getStorageSync('localPostion');
+
 Component({
   /**
    * 组件的属性列表
    */
   properties: {
-    content: String
+    // 移动图像url
+    content: {
+      type: String,
+      value: ''
+    },
+    isShowSellerInfo: {
+      type: Boolean,
+      value: false
+    }
   },
   /**
    * 组件的初始数据
@@ -34,25 +44,25 @@ Component({
    */
   methods: {
     showSellerInfoWrapper: function(){
-       this.triggerEvent('isShowSellerInfo', this.data.SellerInfoTop);
+      this.setData({
+        isShowSellerInfo: true
+      });
+      this.triggerEvent('isShowSellerInfo', this.data.SellerInfoTop);
     },
 
     onShareMoveStart: function(e) {
       // 防止误触碰
       if(e.changedTouches[0]){
-        this.setData({
-          endLeft: false,
-          endRight: false,
-          showOnTop: false
-        })
         this.y = e.changedTouches[0].clientY - 30;
         this.x = e.changedTouches[0].clientX - 30;
       }
     },
     onShareMoving: function(e) {
-      if(this.data.isShowSellerInfo){
-        return
-      }
+      // 移动中不显示停靠状态
+      this.setData({
+        endLeft: false,
+        endRight: false
+      })
       if ((e.changedTouches[0].clientY) < -100) {
         this.setData({
           x: this.x,
@@ -61,7 +71,7 @@ Component({
         })
       }
     },
-    onShareMoveEnd: function(e) {
+    onMoveEnd: function (e) {
       if ((e.changedTouches[0].clientY) < -100) {
         this.setData({
           x: this.x,
@@ -70,6 +80,8 @@ Component({
         })
         return;
       }
+      // 判断移动距离小于30的话就是单击事件
+      
       let currentP = {
         x: 0,
         y: (e.changedTouches[0].clientY - 30) > 0 ? Math.abs(e.changedTouches[0].clientY - 30) : 0,
@@ -82,19 +94,19 @@ Component({
       if ((sysHeight - e.changedTouches[0].clientY) <= 60) {
         currentP.y = windowHeight - 60;
       }
-      
+
 
       // 当距离屏幕上方距离>= 384 时，显示在上方
-      if(currentP.y >= 384){
+      if (currentP.y >= 384) {
         this.setData({
           SellerInfoTop: currentP.y + 288
         })
-      }else{
+      } else {
         this.setData({
           SellerInfoTop: currentP.y + 188
         })
       }
-      
+
       this.setData({
         x: currentP.x,
         y: currentP.y,

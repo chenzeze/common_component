@@ -1,0 +1,12 @@
+<!--com/tabbar/tabbar.wxml-->
+<view class='index_main'>
+  <slot />
+  <view class="com-tabbar" style="border-color:{{tabbar.borderStyle}};background-color:{{tabbar.backgroundColor}}">
+    <view bindtap="switchtab" data-taburl="{{item.pagePath}}" wx:for="{{tabbar.list}}" wx:key="index" class="tabbarItem" style="color:{{curRoute==item.pagePath?tabbar.selectedColor:tabbar.color}}">
+      <image class="icon" src="{{curRoute==item.pagePath?item.selectedIconPath:item.iconPath}}" mode="aspectFit"></image>
+      <view>{{item.text}}</view>
+    </view>
+  </view>
+</view>
+
+

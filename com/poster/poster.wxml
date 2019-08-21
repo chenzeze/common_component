@@ -1,0 +1,14 @@
+<!--components/poster/poster.wxml-->
+<view class="container">
+    <!-- 一开始没有图片，只有一个边框，里面是添加按钮和提示添加文字 -->
+    <view bindtap="bindChooseImg" class="add-img" wx:if="{{!shareImage}}">
+        <image class="add-btn" src="/images/icon_add.svg"></image>
+        <view class="add-tip">点击上传图片</view>
+    </view>
+    <!-- 当有图片时，显示出图片 -->
+    <image bindtap="bindChooseImg" class="add-img" src="{{shareImage}}" wx:else></image>
+    <canvasdrawer painting="{{painting}}" class="canvasdrawer" bind:getImage="eventGetImage" />
+    <!-- 图片上传后自动绘制 -->
+
+    <button bind:tap="eventSave">保存到本地</button>
+</view>
