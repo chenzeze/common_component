@@ -85,17 +85,18 @@ Component({
       wx.navigateBack()
     },
 
-    // 回到组货列表
+    // 回到poster页面
     _navToList() {
       wx.redirectTo({
-        url: '/pages/sales/groupProduct/groupProduct',
+        url: '/pages/poster/poster',
       })
     },
 
     //返回到首页
     backHome() {
-      wx.switchTab({
-        url: '/pages/index/index',
+      // 当使用自定义导航栏时，不能使用switchTab跳转
+      wx.redirectTo({
+        url: '/pages/index/index'
       })
     }
   }

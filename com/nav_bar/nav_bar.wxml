@@ -11,8 +11,8 @@
     <view class='nav-title' style='height:{{titleBarHeight*2}}rpx;line-height: {{titleBarHeight*2}}rpx;'>
       <!-- 返回按钮 -->
 
-      <view class='back-pre-box' bindtap='navBack'>
-        <image src='/images/nav_bar/icon_back.svg' mode='aspectFill' class='back-pre'></image>
+      <view class='back-pre-box'>
+        <image bindtap='navBack' src='/images/icon_back.svg' mode='aspectFill' class='back-pre'></image>
 
         <!-- 是否从首页跳转过来 -->
         <view class='nav-v-line' wx:if='{{editFromHomePage}}'></view>

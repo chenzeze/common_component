@@ -3,6 +3,9 @@ const util = require('../../utils/util.js')
 
 Page({
   data: {
+    navbarData: {
+      title: '查看启动日志'
+    },
     logs: []
   },
   onLoad: function () {

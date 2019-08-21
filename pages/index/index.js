@@ -21,10 +21,10 @@ Page({
         "method": ""
       },
       {
-        "action": "/pages/material_center/material_center",
+        "action": "/pages/logs/logs",
         "icon": "/index/icon_sucai.svg",
-        "title":"显示收藏提示",
-        "method": "showAddTip"
+        "title":"自定义顶部导航栏",
+        "method": "navigateFn"
       },
       {
         "action": "/pages/sales/myFans/myFansList",

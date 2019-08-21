@@ -5,9 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    navbarData: {
-      title: '我是自定义导航'
-    },
+
   },
 
   /**

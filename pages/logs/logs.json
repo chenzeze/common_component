@@ -1,6 +1,6 @@
 {
-  "navigationBarTitleText": "查看启动日志",
+  "navigationStyle":"custom",
   "usingComponents": {
-    "com-tabbar": "/com/tabbar/tabbar"
+    "com-navbar":"/com/nav_bar/nav_bar"
   }
 }
