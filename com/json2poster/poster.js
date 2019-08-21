@@ -26,7 +26,7 @@ Component({
       type: Object,
       value: {},
       observer(newVal, oldVal) {
-        console.log(this.data.posterType)
+        console.log("绘制海报类型:", this.data.posterType);
         if (JSON.stringify(newVal) !== JSON.stringify(oldVal))
           this.eventDraw(this.data.posterType, newVal);
       }
@@ -49,7 +49,7 @@ Component({
 
   ready() {
     if(this.data.showed){
-      console.log("接受到的海报参数",this.data.reqParams)
+      console.log("要动态改变的海报参数",this.data.reqParams)
       this.eventDraw();
     }else{
       console.log("不绘制海报");
