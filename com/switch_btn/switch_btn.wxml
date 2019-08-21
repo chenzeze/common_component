@@ -1,0 +1,14 @@
+<!--pages/component/switch/switch.wxml-->
+<view class="switch-btn {{value?'switch-btn-checked':''}}" style="width:{{switchBtnWidth}}rpx" bindtap="toggle">
+    <view class="switch-btn-inner switch-on" wx:if="{{value === true}}">
+        <!-- 使用slot原因：可以传入文字，也可以传入一个图标 -->
+        <view>{{onText}}</view>
+        <slot name="on"></slot>
+    </view>
+    <view class="switch-btn-inner switch-off" wx:else>
+        {{offText}}
+        <slot name="off"></slot>
+    </view>
+    <!-- 与使用伪元素同效果，这样方便调试 -->
+    <view class="switch-btn-after {{value?'switch-btn-checked-after':''}}" style="left:{{value?switchBtnOnLeft:switchBtnOffLeft}}rpx"></view>
+</view>

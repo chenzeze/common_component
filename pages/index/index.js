@@ -50,11 +50,21 @@ Page({
     motto: 'Hello World',
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
+  
+  // 改变切换按钮显示文字
+  onChange(e) {
+    this.setData({
+      'switch1': e.detail.value
+    })
+  },
+
+  // 显示收藏提示
   showAddTip: function() {
     this.setData({
       isShowIndexAddTip: "resolve"
     })
   },
+
   // 点击生成海报
   handleClickPic: function(event) {
     let _this = this;

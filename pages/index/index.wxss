@@ -120,3 +120,8 @@ page {
   margin: 10rpx auto;
   border-radius: 50%;
 }
+
+/* 自定义切换按钮 */
+.switch_label{
+  margin: 40rpx;
+}

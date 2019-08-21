@@ -1,4 +1,3 @@
-<!--index.wxml-->
 <!-- 可拖动悬浮用户个人信息框 -->
 <com-movable wx:if="{{hasUserInfo}}" bind:isShowSellerInfo="showSellerInfoWrapper" content="{{userInfo.avatarUrl}}" isShowSellerInfo="{{isShowSellerInfo}}">
   <!-- 点击展开遮盖层 -->
@@ -15,6 +14,7 @@
     </view>
   </com-wrapper>
 </com-movable>
+
 <view class="index_main">
     <!-- 定时收藏提示 -->
     <com-addtip status="{{isShowIndexAddTip}}"/>
@@ -56,5 +56,21 @@
 
   <!-- 绘制海报 -->
   <com-json2poster wx:if="{{ifShowPoster}}" showed="{{ifShowPoster}}" posterType="{{posterType}}" reqParams="{{reqParams}}" bind:closePoster='closePoster'></com-json2poster>
-</view>
+
+  <!-- 自定义切换按钮 -->
+  <view class="switch_label">
+    自定义切换按钮用法1
+    <com-switchbtn value="{{switch1}}" bind:change="onChange" onText="打开" offText="关闭"></com-switchbtn> 
+  </view>
+  <view class="switch_label">
+      自定义切换按钮用法2
+      <com-switchbtn value="{{switch1}}" bind:change="onChange">
+        <view slot="on">打开</view>
+        <view slot="off">关闭</view>
+      </com-switchbtn> 
+  </view>
+  
+</view> 
+
+<!-- 自定义底部导航栏 -->
 <com-tabbar></com-tabbar>

@@ -1,0 +1,54 @@
+/* pages/component/switch/switch.wxss */
+.switch-btn{
+  display: inline-block;  
+  /* 动态计算宽度，1个字24rpx，基础宽度72rpx */
+  width: 144rpx;
+  height: 48rpx;
+  line-height: 48rpx;
+  border-radius: 48rpx;
+  vertical-align: middle;
+  border: 2rpx solid #ccc;
+  background-color: #ccc;
+  position: relative;
+  cursor: pointer;
+  /* 点击之后会产生一个半透明的灰色背景 */
+  -webkit-tap-highlight-color: transparent;
+  transition: all .2s ease-in-out;
+}
+
+.switch-btn-checked{
+  background-color: #2d8cf0;
+}
+
+.switch-btn-after {
+  content: '';
+  width: 44rpx;
+  height: 44rpx;
+  border-radius: 44rpx;
+  background-color: #fff;
+  position: absolute;
+  left: 2rpx;
+  top: 2rpx;
+  cursor: pointer;
+  transition: left .2s ease-in-out, width .2s ease-in-out;
+}
+
+.switch-btn-checked-after {
+  /* 动态计算left，1个字24rpx，基础(1个字和0个字)left50rpx */
+  left: 98rpx;
+}
+
+.switch-btn-inner{
+  color: #fff;
+  font-size: 24rpx;
+  position: absolute;
+  vertical-align: middle;
+}
+
+.switch-on{
+  left: 18rpx;
+}
+
+.switch-off {
+  left: 54rpx;
+}

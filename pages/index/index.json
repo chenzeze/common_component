@@ -6,7 +6,7 @@
       "com-movable": "/com/movable/movable",
       "com-json2poster": "/com/json2poster/poster",
       "com-addtip": "/com/add_tip/add_tip",
-      "com-tabbar": "/com/tabbar/tabbar"
-
+      "com-tabbar": "/com/tabbar/tabbar",
+      "com-switchbtn": "/com/switch_btn/switch_btn"
   }
 }
