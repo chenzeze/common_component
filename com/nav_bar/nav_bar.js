@@ -24,12 +24,13 @@ Component({
 
     // 从首页进来的
     if (prev_page && prev_page === NORMAL_ENTRY) {
-      console.log("从首页进来");
       // 设置显示首页
       this.setData({
         editFromHomePage: true
       });
     }
+    console.log("从首页进来的:", this.data.editFromHomePage);
+
 
     // 2.设置导航栏高度
     let placeHoderHeight, totalBarHeight, toolBarHeight, titleBarHeight, phoneModel;
@@ -37,7 +38,7 @@ Component({
 
     // 获取状态栏高度 时间、信号
     let res = wx.getSystemInfoSync();
-    console.log(res);
+    console.log("手机信息", res);
     toolBarHeight = res.statusBarHeight;
     phoneModel = res.model;
 
@@ -52,7 +53,6 @@ Component({
     // 手机型号列表匹配
     for (let key in phoneModels) {
       if (phoneModel.search(key)>-1) {
-        console.log(key);
         placeHoderHeight = totalBarHeight = phoneModels[key];
         titleBarHeight = totalBarHeight - toolBarHeight
         break;
