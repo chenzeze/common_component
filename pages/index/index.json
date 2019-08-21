@@ -1,5 +1,9 @@
 {
+  "backgroundColor": "#eeeeee",  
+  "navigationBarTitleText": "zoe 的组件库",
   "usingComponents": {
-      "com-wrapper": "/com/wrapper/wrapper"
+      "com-wrapper": "/com/wrapper/wrapper",
+      "com-movable": "/com/movable/movable",
+      "com-json2poster": "/com/json2poster/poster"
   }
 }

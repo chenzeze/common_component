@@ -1,6 +1,6 @@
 {
   "component": true,
   "usingComponents": {
-    "canvasdrawer": "/pages/component/canvasdrawer/canvasdrawer"
+    "canvasdrawer": "../canvasdrawer/canvasdrawer"
   }
 }

@@ -1,0 +1,27 @@
+<!--pages/component/nav_bar/nav_bar.wxml-->
+<view class='nav-box'>
+
+  <!-- 占位符 -->
+  <view class='nav-holder' style='height:{{placeHoderHeight*2}}rpx;'></view>
+  <!-- 自定义导航栏 -->
+  <view class='nav-bar'>
+    <!-- 时间，信号等工具栏 -->
+    <view class='tool-bar' style='height: {{toolBarHeight*2}}rpx'></view>
+    <!-- 标题栏 -->
+    <view class='nav-title' style='height:{{titleBarHeight*2}}rpx;line-height: {{titleBarHeight*2}}rpx;'>
+      <!-- 返回按钮 -->
+
+      <view class='back-pre-box' bindtap='navBack'>
+        <image src='/images/nav_bar/icon_back.svg' mode='aspectFill' class='back-pre'></image>
+
+        <!-- 是否从首页跳转过来 -->
+        <view class='nav-v-line' wx:if='{{editFromHomePage}}'></view>
+        <view bindtap='backHome' class="nav-back-home-btn" wx:if='{{editFromHomePage}}'>首页</view>
+      </view>
+
+      <!-- 页面标题 -->
+      <view class='nav-title-data'>{{navbarData.title}}</view>
+
+    </view>
+  </view>
+</view>

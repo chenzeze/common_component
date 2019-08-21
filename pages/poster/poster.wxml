@@ -1,0 +1,4 @@
+<!--pages/poster/poster.wxml-->
+<nav-bar navbarData="{{navbarData}}" />
+
+<text>pages/poster/poster.wxml</text>

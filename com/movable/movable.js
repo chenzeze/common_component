@@ -7,6 +7,8 @@ let {
 } = wx.getSystemInfoSync();
 let sysAveWidth = windowWidth / 2;
 let sysHeight = windowHeight;
+let leftDistance = 9; // 停靠时距离左边距离
+let rightDistance = 54; // 停靠时距离右边距离
 
 let localCoord = wx.getStorageSync('localPostion');
 Component({
@@ -20,14 +22,11 @@ Component({
    * 组件的初始数据
    */
   data: {
-    SellerInfoTop: 0,
-    imgUrl: app.globalData.imgUrl,
-    showOnTop:false,
-    isShowSellerInfo: false,
+    SellerInfoTop: 0, // 距离屏幕上方距离
     endLeft: localCoord.x > sysAveWidth ? false: true,
     endRight: localCoord.x > sysAveWidth ? true: false,
-    status: true,
-    x: (localCoord.x >= 0) ? localCoord.x : 0,
+    status: true, // 用来隐藏移动图标，没用到
+    x: (localCoord.x >= leftDistance) ? localCoord.x : leftDistance,
     y: localCoord.y ? localCoord.y : windowHeight - 150
   },
   /*
@@ -35,17 +34,9 @@ Component({
    */
   methods: {
     showSellerInfoWrapper: function(){
-       this.setData({
-         isShowSellerInfo: true
-       })
-       wx.hideTabBar({});
+       this.triggerEvent('isShowSellerInfo', this.data.SellerInfoTop);
     },
-    closedSellerInfoWrapper: function(){
-      this.setData({
-        isShowSellerInfo: false
-      })
-      wx.showTabBar({});
-   },
+
     onShareMoveStart: function(e) {
       // 防止误触碰
       if(e.changedTouches[0]){
@@ -84,15 +75,9 @@ Component({
         y: (e.changedTouches[0].clientY - 30) > 0 ? Math.abs(e.changedTouches[0].clientY - 30) : 0,
       }
       if (e.changedTouches[0].clientX > sysAveWidth) {
-        this.setData({
-          endRight: true
-        })
-        currentP.x = windowWidth - 63;
+        currentP.x = windowWidth - rightDistance;
       }else{
-        this.setData({
-          endLeft: true
-        })
-        currentP.x = 13
+        currentP.x = leftDistance
       }
       if ((sysHeight - e.changedTouches[0].clientY) <= 60) {
         currentP.y = windowHeight - 60;
@@ -102,7 +87,7 @@ Component({
       // 当距离屏幕上方距离>= 384 时，显示在上方
       if(currentP.y >= 384){
         this.setData({
-          SellerInfoTop: currentP.y - 188
+          SellerInfoTop: currentP.y + 288
         })
       }else{
         this.setData({
@@ -115,8 +100,20 @@ Component({
         y: currentP.y,
         status: true
       })
-      console.log(currentP.x,currentP.y)
       wx.setStorageSync('localPostion', currentP);
+
+      let _this = this;
+      setTimeout(() => {
+        if (currentP.x <= (leftDistance + 30)){ //x坐标小于[指定距离 + 30（误差距离）时，显示子弹头虚化背景]lop
+          _this.setData({
+            endLeft: true
+          })
+        }else{
+          _this.setData({
+            endRight: true
+          })
+        }
+      }, 100);
     },
   }
 })

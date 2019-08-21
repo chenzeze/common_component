@@ -1,5 +1,59 @@
 <!--index.wxml-->
 <view class="index_main">
-    <com-wrapper showWrapper="{{isshowWrapper}}">你收手</com-wrapper>
-    <button bindtap="showWrapper">点击展开</button>
+   <!-- 导航菜单 -->
+   <view class="seller-nav-bar">
+      <block wx:for="{{navList}}" wx:key="{{index}}">
+        <!-- 分享店铺 -->
+        <button wx:if="{{item.title == '分享店铺'}}" open-type="share" class="seller-nav">
+          <view class="seller-nav-icon-box">
+              <image class="seller-nav-icon" src="{{imgUrl}}{{item.icon}}"></image>
+          </view>
+          <text class="nav-title">{{item.title}}</text>
+        </button>
+
+        <button wx:if="{{item.title == '授权显示可拖动个人信息悬浮框'}}" open-type="getUserInfo" class='seller-nav' bind:getuserinfo='getUserInfo'>
+          <view class="seller-nav-icon-box">
+              <image class="seller-nav-icon" src="{{imgUrl}}{{item.icon}}"></image>
+          </view>
+          <text class="nav-title">{{item.title}}</text>
+        </button>
+
+        <view wx:else class="seller-nav" bindtap="{{item.method}}" data-action="{{item.action}}">
+            <view class="seller-nav-icon-box">
+                <image class="seller-nav-icon" src="{{imgUrl}}{{item.icon}}"></image>
+            </view>
+            <text class="nav-title">{{item.title}}</text>
+        </view>
+      </block>
+  </view>
+
+  <!-- 弹窗 -->
+  <com-wrapper showWrapper="{{isshowWrapper}}">
+    <view class="panel">
+      <view class="panel_content">作为一个优秀的弹窗,虽然我应该利用slot插槽封装在wrapper组件中，但是由于微信工具显示节点树有点问题，slot插槽渲染后位置不对的问题。就只能写在外面了。组件中对panel阻止了点击事件冒泡</view>
+      <image bindtap='hideWrapper' class='close_btn' src='/images/icon_close.svg'></image>
+    </view>
+  </com-wrapper>
+
+  <!-- 可拖动悬浮用户个人信息框 -->
+  <com-movable wx:if="{{hasUserInfo}}" bind:isShowSellerInfo="showSellerInfoWrapper" content="{{userInfo.avatarUrl}}">
+    <!-- 点击展开遮盖层 -->
+    <com-wrapper showWrapper="{{isShowSellerInfo}}">
+      <!-- 弹窗随着可拖动悬浮窗的高度而变化 -->
+      <view class="sellerInfoPanel" style="top:{{SellerInfoTop}}rpx;">
+        <image
+          src="/images/icon_close.svg"
+          class="close_btn"
+          bindtap="closedSellerInfoWrapper"
+          ></image>
+       <text class="user_name">{{userInfo.nickName}}</text>
+       <image src="{{userInfo.avatarUrl}}" class="user_avator"></image>
+      </view>
+    </com-wrapper>
+  </com-movable>
+
+  <!-- 绘制海报 -->
+  <button bindtap="handleClickPic">点击生成海报</button>
+  <json-poster wx:if="{{ifShowPoster}}" showed="{{ifShowPoster}}" posterType="{{posterType}}" reqParams="{{reqParams}}" bind:closePoster='closePoster'></json-poster>
+
 </view>

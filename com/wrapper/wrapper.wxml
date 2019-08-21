@@ -1,9 +1,7 @@
 <!--com/wrapper.wxml-->
 <view class="wrapper" wx:if="{{showWrapper}}" bindtap="hideWrapper">
-    
-</view>
-<view class="panel {{panelBottom?'bottom':''}} {{panelCenter?'center':''}}">
-    <view class="close_btn" bindtap="hideWrapper">
-    </view>
-    <slot />
+  <view catchtap="emptyFn">
+    <!-- 由于小程序slot插槽渲染后位置不对（官方工具的锅，工具节点显示树有问题）,所以panel内容只能在外部定义 -->
+    <slot></slot>
+  </view>
 </view>

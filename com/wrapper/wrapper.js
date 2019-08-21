@@ -38,7 +38,7 @@ Component({
       type: Boolean,
       value: false,
       observer: function (newVal, oldVal) {
-        console.log('从默认值false到传入值true执行一次')
+        // console.log('从默认值false到传入值true执行一次')
         if (this.data.isTabPage) {
           if (newVal) {
             wx.hideTabBar({});
@@ -53,7 +53,7 @@ Component({
     closeBtnIcon: {
       type: String,
       value: "/resources/images/close_btn.svg"
-    }
+    },
 
   },
 
@@ -72,6 +72,9 @@ Component({
       this.setData({
         showWrapper: false
       })
-    }
+    },
+    emptyFn: function () {
+
+    },
   }
 })

@@ -1,9 +1,10 @@
 /**index.wxss**/
+
 page {
   height: 100%;
 }
 .index_main{
-  position: absolute;
+  position: relative;
   width: 100%;
   height: 100%;
 }
@@ -26,4 +27,95 @@ page {
 
 .usermotto {
   margin-top: 200px;
+}
+.login_btn {
+  background: #fff;
+  border: none;
+}
+
+
+/* 导航菜单 */
+.seller-nav-bar{
+  display: flex;
+  flex-wrap: wrap;
+  background: #fff;
+  margin-bottom: 30rpx;
+}
+.seller-nav{
+  width: 50%;
+  height: 144rpx;
+  text-align: center;
+  z-index: 1;
+}
+.seller-nav-icon-box{
+  height: 92rpx;
+  line-height: 92rpx;
+}
+.seller-nav-icon{
+  width: 48rpx;
+  height: 48rpx;
+  margin: 0 auto;
+  vertical-align: middle;
+}
+
+.nav-title{
+  font-size: 24rpx;
+  color: #333;
+  letter-spacing: 0;
+}
+
+
+/* 遮盖层 */
+.panel{
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  margin: auto;
+  width: 670rpx;
+  background: #fff;
+  box-shadow: 0 0 20rpx 0;
+  border-radius: 94rpx;
+  z-index: 10001;
+  padding: 20rpx;
+}
+.panel_content{
+  padding: 40rpx;
+  text-indent: 2em;
+}
+.close_btn{
+  position: absolute;
+  bottom: -132rpx;
+  width: 70rpx;
+  height: 70rpx;
+  left: 0;
+  right: 0;
+  margin: auto;
+  z-index: 10001;
+}
+
+/* 可拖动悬浮用户个人信息框 */
+.sellerInfoPanel{
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  width: 670rpx;
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0 0 40rpx rgba(0,0,0,0.2);
+  border-radius: 94rpx;
+  padding: 20rpx;
+  z-index: 10001;
+}
+.user_name{
+  text-align: center;
+}
+.user_avator{
+  width: 70rpx;
+  height: 70rpx;
+  margin: 10rpx auto;
+  border-radius: 50%;
 }

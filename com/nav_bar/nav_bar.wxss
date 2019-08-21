@@ -1,0 +1,54 @@
+/* 顶部要固定定位，一直在页面的最顶层 */
+.nav-bar {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  background: #fff;
+  color: #000;
+  z-index: 999;
+}
+
+/* 使返回按钮和标题水平垂直居中 */
+.nav-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  font-size: 30rpx;
+  color: #2c2b2b;
+}
+
+/* 返回按钮垂直居中，脱离文档流，使不影响中间标题的水平居中 */
+.back-pre-box {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  left: 0;
+}
+
+/* 返回箭头 */
+.back-pre {
+  width: 24rpx;
+  height: 32rpx;
+  /* image标签自带间隙，变为块级元素，使失效 */
+  display: block;
+  padding: 0 40rpx 0 20rpx;
+}
+
+/* 中间线 */
+.nav-v-line {
+  width: 2rpx;
+  height: 32rpx;
+  background-color: #421f1f;
+}
+
+/* 首页 */
+.nav-back-home-btn {
+  padding: 0 20rpx 0 40rpx;
+}
+
+/* 页面标题 */
+.nav-title-data {
+  font-size: 38rpx;
+  font-weight: 500;
+}
