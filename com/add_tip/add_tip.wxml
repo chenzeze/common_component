@@ -1,0 +1,10 @@
+<!--pages/component/add_tip/add_tip.wxml-->
+<view class="box" wx:if="{{SHOW_TIPS}}">
+  <view class='body'>
+    <view class='body-before'></view>
+    <text class="text">{{text}}</text>
+    <view class='close-btn' bindtap='closeTip'>
+      <image src='{{imgUrl}}/icon_line_close.svg' mode='aspectFit' class="close-icon"></image>
+    </view>
+  </view>
+</view>

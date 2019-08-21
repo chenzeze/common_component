@@ -5,6 +5,7 @@ import Poster from '../../com/json2poster/poster-model.js';
 
 Page({
   data: {
+    isShowIndexAddTip: "pending",
     imgUrl: '/images',
     navList : [ // 导航菜单
       {
@@ -22,14 +23,14 @@ Page({
       {
         "action": "/pages/material_center/material_center",
         "icon": "/index/icon_sucai.svg",
-        "title":"素材中心",
-        "method": "navigateFn"
+        "title":"显示收藏提示",
+        "method": "showAddTip"
       },
       {
         "action": "/pages/sales/myFans/myFansList",
         "icon": "/index/icon_fans.svg",
-        "title":"我的fans",
-        "method": "navigateFn"
+        "title":"绘制海报",
+        "method": "handleClickPic"
       }
     ],
 
@@ -49,11 +50,31 @@ Page({
     motto: 'Hello World',
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
-
-  // 点击跳转
-
+  showAddTip: function() {
+    this.setData({
+      isShowIndexAddTip: "resolve"
+    })
+  },
   // 点击生成海报
   handleClickPic: function(event) {
+    let _this = this;
+    wx.showModal({
+      title: '获取二维码警告',
+      content: '请确保小程序已经发布，在未发布之前无法获取小程序码，体验版也不可以。',
+      success: function (res) {
+        if (res.confirm) {
+          _this.drawPoster(event, true);
+          return;
+        }else if (res.cancel) {
+          _this.drawPoster(event, false);
+          return;
+        }
+      }
+    })
+    // console.log("将会报错 ！！！！fail invalid page hint");
+  },
+
+  drawPoster: function(event, withQrCode) {
     if(this.data.isDoingSaveAll) return;
     let item = this.data.item;
     let reqParams = {};
@@ -61,36 +82,57 @@ Page({
       this.data.poster = new Poster();
     }
     let poster = this.data.poster;
-    poster.getQrCode('goodsDetail', item.sku).then((path)=> {
-      console.log("生成的二维码", path);
-      if (item.pictureSort === 0) {
-        reqParams = {
-          mainPic: CONFIG.productGroupItemImgUrl + item.imgUrl,
-          avatarUrl: this.data.avatarUrl,
-          sellerName: this.data.sellerName,
-          shopName: this.data.shopName,
-          qrCode: path,
-          productName: item.productName,
-          salePrice: item.price.toString(),
-          originPrice: "￥ " + item.listPrice
+    if(withQrCode){
+      poster.getQrCode('index').then((path)=> {
+        console.log("生成的二维码", path);
+        wx.showLoading({
+          title: '绘制分享图片中',
+          mask: true
+        })
+        // 改变动态参数
+        if (item.pictureSort === 0) {
+          reqParams = {
+            mainPic: CONFIG.productGroupItemImgUrl + item.imgUrl,
+            avatarUrl: this.data.avatarUrl,
+            sellerName: this.data.sellerName,
+            shopName: this.data.shopName,
+            qrCode: path,
+            productName: item.productName,
+            salePrice: item.price.toString(),
+            originPrice: "￥ " + item.listPrice
+          }
+        }else {
+          reqParams = {
+            mainPic: CONFIG.productGroupItemImgUrl +item.imgUrl,
+            qrCode: path
+          }
         }
-      }else {
-        reqParams = {
-          mainPic: CONFIG.productGroupItemImgUrl +item.imgUrl,
-          qrCode: path
-        }
-      }
+        this.setData({
+          ifShowPoster: true,
+          posterType: item.pictureSort,
+          reqParams: reqParams
+        })
+      }).catch(e=>{
+        wx.showToast({
+          title: '需先发布小程序',
+          image: '/images/err_tip_icon.png',
+          duration: 2000
+        })
+      })
+    }else{
+      wx.showLoading({
+        title: '绘制分享图片中',
+        mask: true
+      })
       this.setData({
         ifShowPoster: true,
-        posterType: item.pictureSort,
+        posterType: 'index',
         reqParams: reqParams
       })
-    });
-    wx.showLoading({
-      title: '绘制分享图片中',
-      mask: true
-    })
+    }
+    
   },
+        
 
   // 关闭海报预览
   closePoster: function() {
@@ -134,6 +176,7 @@ Page({
     })
   },
   onLoad: function () {
+    this.showAddTip();
     // if (app.globalData.userInfo) {
     //   this.setData({
     //     userInfo: app.globalData.userInfo,

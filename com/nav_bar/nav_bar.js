@@ -1,4 +1,5 @@
 // pages/component/nav_bar/nav_bar.js
+// 未完善--手机型号高度适配
 const app = getApp()
 Component({
   properties: {
@@ -48,7 +49,7 @@ Component({
 
     }
 
-    // 手机型号列表匹配 有问题！！
+    // 手机型号列表匹配
     for (let key in phoneModels) {
       if (phoneModel.search(key)>-1) {
         console.log(key);

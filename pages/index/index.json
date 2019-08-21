@@ -4,6 +4,8 @@
   "usingComponents": {
       "com-wrapper": "/com/wrapper/wrapper",
       "com-movable": "/com/movable/movable",
-      "com-json2poster": "/com/json2poster/poster"
+      "com-json2poster": "/com/json2poster/poster",
+      "com-addtip": "/com/add_tip/add_tip"
+
   }
 }

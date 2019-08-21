@@ -1,5 +1,8 @@
 <!--index.wxml-->
 <view class="index_main">
+    <!-- 定时收藏提示 -->
+    <com-addtip status="{{isShowIndexAddTip}}"/>
+
    <!-- 导航菜单 -->
    <view class="seller-nav-bar">
       <block wx:for="{{navList}}" wx:key="{{index}}">
@@ -53,7 +56,6 @@
   </com-movable>
 
   <!-- 绘制海报 -->
-  <button bindtap="handleClickPic">点击生成海报</button>
-  <json-poster wx:if="{{ifShowPoster}}" showed="{{ifShowPoster}}" posterType="{{posterType}}" reqParams="{{reqParams}}" bind:closePoster='closePoster'></json-poster>
+  <com-json2poster wx:if="{{ifShowPoster}}" showed="{{ifShowPoster}}" posterType="{{posterType}}" reqParams="{{reqParams}}" bind:closePoster='closePoster'></com-json2poster>
 
 </view>

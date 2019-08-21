@@ -1,0 +1,46 @@
+/* pages/component/add_tip/add_tip.wxss */
+.box {
+  position: fixed;
+  width: 448rpx;
+  height: 64rpx;
+  top: 18rpx;
+  right: 70rpx;
+  z-index: 100000000;
+}
+
+.body {
+  position: relative;
+  background: rgba(0, 0, 0, 0.85);
+  border-radius: 4px;
+  width: 448rpx;
+  height: 64rpx;
+  display: flex;
+  padding: 0 20rpx;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.body .text {
+  font-size: 12px;
+  color: #FFFFFF;
+}
+
+/* 正三角形 */
+.body-before {
+  position: absolute;
+  top: -25rpx;
+  right: 108rpx;
+  width: 0;
+  height: 0;
+  border: 12rpx solid transparent;
+  border-bottom: 18rpx solid rgba(0, 0, 0, 0.85);
+}
+
+.close-icon {
+  /* 去除image标签默认样式 */
+  display: block;
+  width: 20rpx;
+  height: 20rpx;
+  padding-left: 20rpx;
+}

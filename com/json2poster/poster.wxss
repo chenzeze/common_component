@@ -1,7 +1,10 @@
 /* components/poster/poster.wxss */
 .container {
+    position: fixed;
     width: 100%;
-    /* position: relative; */
+    top: 0;
+    z-index: 1;
+    background: #fff;
 }
 
 .add-img {

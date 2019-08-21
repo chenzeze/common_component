@@ -129,6 +129,8 @@ Component({
         this.setData({
           shareImage: tempFilePath
         })
+      }else{
+        console.error("绘制出错:", errMsg);
       }
     }
   }

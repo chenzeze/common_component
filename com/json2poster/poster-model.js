@@ -2,26 +2,6 @@
 
 import Utils from '../../utils/common_util.js';
 
-// 本地图片
-const LOCAL_IMAGE = {
-  LOGO: {
-    url: '/images/poster/logo.png',
-  },
-  LOGOVERTICAL: {
-    url: '/images/poster/logo_vertical.png',
-  },
-  DECORATION: {
-    LEFTTOP: {
-      url: '/images/poster/detail_left_top.png',
-    },
-    RIGHTTOP: {
-      url: '/images/poster/detail_right_top.png',
-    },
-    RIGHTBOTTOM: {
-      url: '/images/poster/detail_right_bottom.png',
-    },
-  }
-}
 // 存放各个海报类型数据
 const posterTypeObj = {
   'index': {
@@ -29,7 +9,7 @@ const posterTypeObj = {
     height: 744,
     clear: true,
     // views后面的会覆盖在前面画布之上，注意顺序
-    // image ， circle（圆形头像），text，rect
+    // image ， drawCicle（圆形头像），text，rect
 
     /**
      * 标题（样式，位置）
@@ -49,7 +29,7 @@ const posterTypeObj = {
         type: 'image',
         desc: 'mainPic',
         // 中心图
-        url: '../../../images/poster/posterImg/关怀-新用户.png',
+        url: '/images/clothes.jpg',
         top: 0,
         left: 0,
         width: 496,
@@ -59,7 +39,7 @@ const posterTypeObj = {
         type: 'image',
         desc: 'qrCode',
         // 小程序码
-        url: 'url',
+        url: '/images/qrcode.jpg',
         top: 648,
         left: 392,
         width: 80,
@@ -69,7 +49,7 @@ const posterTypeObj = {
         type: 'image',
         desc: 'avatarUrl',
         // 头像
-        url: 'url',
+        url: '/images/avatarUrl.jpg',
         top: 660,
         left: 16,
         width: 60,
@@ -95,7 +75,7 @@ const posterTypeObj = {
       {
         type: 'text',
         desc: 'name',
-        content: 'xx的微店',
+        content: 'zoe的自定义组件库',
         MaxLineNumber: 1,
         breakWord: true,
         top: 656,
@@ -109,7 +89,7 @@ const posterTypeObj = {
       {
         type: 'text',
         desc: 'storeName',
-        content: 'storeName',
+        content: 'bat后备人才库',
         MaxLineNumber: 1,
         breakWord: true,
         top: 692,
@@ -119,173 +99,6 @@ const posterTypeObj = {
         color: '#999999',
         letterSpacing: 0,
         lineHeight: 32
-      }
-    ]
-  },
-  
-  '0': {
-    width: 496,
-    height: 792,
-    views:[
-      {
-        type: 'rect',
-        top: 0,
-        left: 0,
-        width: 496,
-        height: 792,
-        background: '#fff'
-      },
-      {
-        type: 'image',
-        url: LOCAL_IMAGE.DECORATION.LEFTTOP.url,
-        top: 140,
-        left: 44,
-        width: 12,
-        height: 208
-      },
-      {
-        type: 'image',
-        url: LOCAL_IMAGE.DECORATION.RIGHTTOP.url,
-        top: 140,
-        left: 442,
-        width: 10,
-        height: 132
-      },
-      {
-        type: 'image',
-        url: LOCAL_IMAGE.LOGOVERTICAL.url,
-        top: 288.6,
-        left: 435.4,
-        width: 21,
-        height: 200
-      },
-      {
-        type: 'image',
-        url: LOCAL_IMAGE.DECORATION.RIGHTBOTTOM.url,
-        top: 504,
-        left: 442,
-        width: 10,
-        height: 132
-      },
-      {
-        type: 'text',
-        desc: 'title',
-        content: '换季大作战|4种“仙女色”帮你轻松玩转人间时尚',
-        fontSize: 24,
-        color: '#000',
-        textAlign: 'left',
-        top: 42,
-        left: 44,
-        lineHeight: 34,
-        breakWord:true,
-        width: 354
-      },
-      {
-        type: 'image',
-        desc: 'mainPic',
-        // 中心图
-        url: 'https://hybrid.xiaoying.tv/miniprogram/viva-ad/1/1531385366950.jpeg',
-        top: 140,
-        left: 84,
-        width: 330,
-        height: 496
-      },
-      {
-        type: 'image',
-        desc: 'qrCode',
-        // 小程序码
-        url: 'https://hybrid.xiaoying.tv/miniprogram/viva-ad/1/1531385433625.jpeg',
-        top: 710,
-        left: 152,
-        width: 70,
-        height: 70
-      },
-      {
-        type: 'image',
-        desc: 'avatarUrl',
-        drawCicle: true,
-        // 头像
-        url: 'https://hybrid.xiaoying.tv/miniprogram/viva-ad/1/1531385433625.jpeg',
-        top: 648,
-        left: 82,
-        width: 52,
-        height: 52
-      },
-      {
-        type: 'text',
-        desc: 'sellerName',
-        content: '梅小花超级的微店',
-        fontSize: 22, // *2
-        color: '#000000',
-        textAlign: 'left',
-        top: 646,
-        left: 150,
-        breakWord: true,
-        width: 208,
-        MaxLineNumber: 1
-      },
-      {
-        type: 'text',
-        desc: 'shopName',
-        content: 'MissSixty正佳广场',
-        fontSize: 20,
-        color: '#666',
-        textAlign: 'left',
-        top: 676,
-        left: 150,
-        lineHeight: 24,
-        breakWord: true,
-        width: 208,
-        MaxLineNumber: 1
-      },
-      {
-        type: 'text',
-        desc: 'bottom',
-        content: '长按识别二维码进入',
-        fontSize: 20,
-        color: '#666',
-        textAlign: 'left',
-        top: 714,
-        left: 234,
-        lineHeight: 28,
-        MaxLineNumber: 2,
-        breakWord: true,
-        width: 100
-      }
-    ]
-  },
-
-  'default': {
-    width: 496,
-    height: 792,
-    views:[
-      {
-        type: 'rect',
-        top: 0,
-        left: 0,
-        width: 496,
-        height: 792,
-        background: '#fff'
-      },
-      {
-        type: 'image',
-        desc: 'mainPic',
-        // 中心图
-        url: 'https://hybrid.xiaoying.tv/miniprogram/viva-ad/1/1531385366950.jpeg',
-        top: 0,
-        left: 0,
-        width: 496,
-        height: 792
-      },
-      {
-        type: 'image',
-        desc: 'qrCode',
-        // 小程序码
-        url: 'https://hybrid.xiaoying.tv/miniprogram/viva-ad/1/1531385433625.jpeg',
-        top: 696,
-        left: 396,
-        width: 100,
-        height: 96
       }
     ]
   }
@@ -345,7 +158,7 @@ export default class Poster{
       success(res) {
         wx.showToast({
           title: '保存图片成功',
-          image: '/images/common/icon_toast_success.jpg',
+          image: '/images/icon_toast_success.jpg',
           duration: 2000
         })
       },
@@ -353,7 +166,7 @@ export default class Poster{
         console.log(err)
         wx.showToast({
           title: '未开启保存权限',
-          image: '/images/common/err_tip_icon.png',
+          image: '/images/err_tip_icon.png',
           duration: 2000
         })
       }
@@ -398,7 +211,7 @@ Poster.prototype.trySaveImg = function(imgUrl, successCallback) {
             if(!res.authSetting['scope.writePhotosAlbum']){
               wx.showToast({
                 title: '未开启保存权限',
-                image: '/images/common/err_tip_icon.png',
+                image: '/images/err_tip_icon.png',
                 duration: 2000
               })
             }
@@ -443,6 +256,7 @@ Poster.prototype.getQrCode = function (type, sku, articleId, articleCode, groupI
     scene = `${scene}-${groupId}-${storeId}-${userId}`;
   } else { // d、首页
     path = 'pages/index/index';
+    scene = "123";
   }
 
   return new Promise((resolve, reject) => {

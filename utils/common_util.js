@@ -135,6 +135,7 @@ const getQrCode = (path, scene, dataType) => {
     }
 
     console.log('小程序码～云参数：', param)
+    wx.cloud.init()
     wx.cloud.callFunction({
       name: 'getNewQrCode',
       data: param
@@ -164,6 +165,7 @@ const getQrCode = (path, scene, dataType) => {
 /* 图片临时缓存 */
 const localQrImageUrl = (buffer) => {
   return new Promise((resolve, reject) => {
+    // 同一路径的图片会覆盖
     const TMP_IMG_NAME = 'TMP_QR_CODE'
     const filePath = `${wx.env.USER_DATA_PATH}/${TMP_IMG_NAME}.jpg`;
     // console.log('临时存储路径：', filePath)
