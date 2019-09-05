@@ -26,6 +26,7 @@ git clone https://github.com/chenzeze/common_component.git
 ### 启用多线程一键生成多张海报,平均每秒绘制 1 张
 
 <img src="./output/saveAll.jpg" width="365" height="619"/>
+<div><a href="./pages/poster/poster.js">源码地址</a></div>
 
 ### 自定义头部/底部导航栏
 
