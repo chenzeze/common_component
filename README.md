@@ -27,17 +27,17 @@ git clone https://github.com/chenzeze/common_component.git
 
 <img src="./output/saveAll.jpg" width="365" height="619"/>
 
-### 首页,自定义头部/底部导航栏
+### 自定义头部/底部导航栏
 
-<img src="./output/index.jpg" width="365" height="619"/>&quot;&quot;&quot;<img src="./output/topbar.jpg" width="365" height="619"/>
+<img src="./output/index.jpg" width="750" height="619"/>
 
-### 弹窗,可拖动悬浮身份框，点击在其上/下位置展开弹窗
+### 可拖动悬浮身份框，点击在其上/下位置展开弹窗
 
-<img src="./output/alertWindow.jpg" width="365" height="619"/>&quot;&quot;&quot;<img src="./output/draggableInfo.jpg" width="365" height="619"/>
+<img src="./output/draggableInfo.jpg" width="750" height="619"/>
 
-### 获取二维码预警，需要已发布的小程序才能通过云函数获取二维码,生成首页海报
+### 生成首页海报
 
-<img src="./output/qrCodeAlert.jpg" width="365" height="619"/>&quot;&quot;&quot;<img src="./output/saveOne.jpg" width="365" height="619"/>
+<img src="./output/saveOne.jpg" width="750" height="619"/>
 
 ## 目标功能
 
