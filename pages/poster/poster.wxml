@@ -1,4 +1,16 @@
 <!--pages/poster/poster.wxml-->
 
-<text>pages/poster/poster.wxml</text>
 <com-tabbar></com-tabbar>
+<view class="product-list">
+    <view class="product-item" wx:for="{{productList}}" wx:key="{{index}}">
+        <image class="product-item-img" src="{{item.url}}" mode="aspectFit|aspectFill|widthFix" lazy-load="false"
+            binderror="" bindload=""></image>
+    </view>
+    <button bindtap="saveAll">一键生成</button>
+
+</view>
+<!-- 一键保存 -->
+<block wx:for="{{productList}}" wx:key="{{index}}">
+    <canvasdrawer canvasId="canvasdrawer-{{index}}" wx:if="{{isShowCanvas}}" painting="{{item.painting}}"
+        class="canvasdrawer" bind:getImage="eventGetImage" />
+</block>

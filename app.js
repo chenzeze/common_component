@@ -55,5 +55,93 @@ App({
         }
       ]
     }
-  }
+  },
+
+  // 封装接口请求
+  wxRequest: function ({
+    interfaceName,
+    reqData,
+    bodyData,
+    failCb = (res) => {
+      console.log('请求失败~具体信息为：', res);
+      wx.showToast({
+        title: res.message && res.message.length > 7 ? '接口请求错误' : res.message && res.message.length <= 7 ? res.message : '接口请求错误',
+        image: '/images/err_tip_icon.png',
+        duration: 2000
+      })
+      
+    },
+    extendsOptions = {}
+  }) {
+    // 页面中请求数量++,处理多并发情况
+    if (this.globalData.pageRequestCount === 0) {
+      wx.showLoading({
+        title: '加载中...',
+      });
+    }
+    this.globalData.pageRequestCount++;
+
+    const domin = extendsOptions.interfaceDomin || CONFIG.goodsInterfaceDomin;
+    const reqUrl = reqData ?
+      `${domin}${interfaceName}?${queryHelper.queryEncoded(reqData)}` :
+      `${domin}${interfaceName}`;
+    let header;
+
+    // console.log('请求信息：', reqUrl, reqData);
+
+    if(extendsOptions.contentType){
+      header = {
+        'content-type': extendsOptions.contentType,
+        cookie_id: this.appData.cookieId
+      }
+    }else{
+      header = {
+        ...CONFIG.header,
+        cookie_id: this.appData.cookieId
+      }
+    }
+    return wsAPI.request({
+      url: reqUrl,
+      data: bodyData || '',
+      method: extendsOptions.method || CONFIG.reqMethod,
+      header: header
+    }).then((res) => {
+      if(this.globalData.pageRequestCount <= 0) return;
+      this.globalData.pageRequestCount--;
+      if (this.globalData.pageRequestCount === 0) {
+        let _this = this;
+        // 加载完之后等待 500ms，再次检查是否没有新的请求, 如果没有，这才结束加载框
+        let timer = setTimeout(function(){
+          if(timer){
+            clearTimeout(timer);
+          }
+          if(_this.globalData.pageRequestCount === 0){
+            wx.hideLoading();
+          }
+        }, 500)
+      }
+      if (res.data.code != '1') {
+        if (extendsOptions.skipFailCb) {
+          console.log('request error: ', res.data);
+        } else {
+          console.log('请求失败的路径0：', reqUrl, reqData);
+          failCb(res.data);
+        }
+      }
+      if (extendsOptions.wantRes) {
+        return res.data;
+      } else {
+        return res.data.content;
+      }
+
+    }, (res) => {
+      if (isShowLoad === 1) {
+        // wx.hideLoading();
+        this.hideLoading();
+      }
+      console.log('请求失败的路径1：', reqUrl, reqData);
+      failCb(res.data);
+      return res;
+    })
+  },
 })

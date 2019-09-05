@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "com-tabbar": "/com/tabbar/tabbar"
+    "com-tabbar": "/com/tabbar/tabbar",
+    "canvasdrawer": "/com/canvasdrawer/canvasdrawer"
   }
 }
