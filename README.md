@@ -23,9 +23,17 @@ git clone https://github.com/chenzeze/common_component.git
 
 ## 效果展示
 
+### 启用多线程一键生成多张海报,平均每秒绘制 1 张
+
+<img src="./output/saveAll.jpg" width="365" height="619"/>
+
 ### 首页
 
 <img src="./output/index.jpg" width="365" height="619"/>
+
+### 自定义头部/底部导航栏
+
+<img src="./output/topbar.jpg" width="365" height="619"/>
 
 ### 弹窗
 
@@ -42,14 +50,6 @@ git clone https://github.com/chenzeze/common_component.git
 ### 生成首页海报
 
 <img src="./output/saveOne.jpg" width="365" height="619"/>
-
-### 自定义头部/底部导航栏
-
-<img src="./output/topbar.jpg" width="365" height="619"/>
-
-### 启用多线程一键生成多张海报,平均每秒绘制 1 张
-
-<img src="./output/saveAll.jpg" width="365" height="619"/>
 
 ## 目标功能
 
